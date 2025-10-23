@@ -1,0 +1,48 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://julio_giampiere_grados@bitbucket.org/devcodela/web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/devcodela/web#readme",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "country-flag-icons": "^1.5.5",
+    "express": "^4.17.1",
+    "geoip-lite": "^1.4.5",
+    "glob": "^7.1.6",
+    "moment": "^2.29.4",
+    "next": "^9.5.5",
+    "next-redux-wrapper": "^4.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-gtm-module": "^2.0.10",
+    "react-redux": "^7.2.1",
+    "react-select": "^3.0.8",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "sitemap": "^6.1.0",
+    "styled-components": "^5.0.1",
+    "url": "^0.11.0",
+    "utils": "git+ssh://git@github.com/JulioGrados/utilseai.git"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1",
+    "standard": "^14.3.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
+}
