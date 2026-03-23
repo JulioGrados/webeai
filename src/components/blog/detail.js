@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import moment from 'moment'
+import { useState } from 'react'
+import { MEDIA_PATH } from 'utils/files/path'
 import { useBlog } from '../../hooks'
 import {
   BlogDetailContainer,
@@ -15,6 +17,7 @@ import {
 
 const DetailBlog = ({ blogId }) => {
   const { blog, loading } = useBlog(blogId)
+  const [imageError, setImageError] = useState(false)
 
   if (loading) {
     return (
@@ -40,8 +43,6 @@ const DetailBlog = ({ blogId }) => {
     )
   }
 
-  const defaultImage = '/static/img/blog-default.jpg'
-
   return (
     <BlogDetailContainer>
       <Link href='/blog'>
@@ -61,13 +62,19 @@ const DetailBlog = ({ blogId }) => {
         </BlogDetailMeta>
       </BlogDetailHeader>
 
-      {blog.image && (
+      {blog.image && !imageError ? (
         <BlogDetailImage>
           <img
-            src={blog.image}
+            src={MEDIA_PATH + blog.image}
             alt={blog.title}
-            onError={(e) => { e.target.src = defaultImage }}
+            onError={() => setImageError(true)}
           />
+        </BlogDetailImage>
+      ) : (
+        <BlogDetailImage style={{ background: 'linear-gradient(135deg, #0077e2 0%, #00c6ff 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ color: '#fff', fontSize: '96px', fontWeight: '700' }}>
+            {blog.title ? blog.title.charAt(0).toUpperCase() : 'B'}
+          </span>
         </BlogDetailImage>
       )}
 

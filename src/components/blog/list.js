@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import moment from 'moment'
+import { useState } from 'react'
+import { MEDIA_PATH } from 'utils/files/path'
 import { useBlogs } from '../../hooks'
 import BlogItem from './item'
 import {
@@ -15,6 +17,30 @@ import {
   BlogDate,
   EmptyBlogs
 } from './styles'
+
+const FeaturedImageComponent = ({ blog }) => {
+  const [imageError, setImageError] = useState(false)
+
+  if (!blog.image || imageError) {
+    return (
+      <FeaturedImage style={{ background: 'linear-gradient(135deg, #0077e2 0%, #00c6ff 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ color: '#fff', fontSize: '72px', fontWeight: '700' }}>
+          {blog.title ? blog.title.charAt(0).toUpperCase() : 'B'}
+        </span>
+      </FeaturedImage>
+    )
+  }
+
+  return (
+    <FeaturedImage>
+      <img
+        src={MEDIA_PATH + blog.image}
+        alt={blog.title}
+        onError={() => setImageError(true)}
+      />
+    </FeaturedImage>
+  )
+}
 
 const ListBlogs = () => {
   const { blogs, loading } = useBlogs()
@@ -42,7 +68,6 @@ const ListBlogs = () => {
 
   const featuredBlog = blogs[0]
   const otherBlogs = blogs.slice(1)
-  const defaultImage = '/static/img/blog-default.jpg'
 
   return (
     <BlogContainer>
@@ -65,13 +90,7 @@ const ListBlogs = () => {
             <BlogCardLink style={{ marginTop: '15px' }}>Leer blog</BlogCardLink>
           </Link>
         </FeaturedContent>
-        <FeaturedImage>
-          <img
-            src={featuredBlog.image || defaultImage}
-            alt={featuredBlog.title}
-            onError={(e) => { e.target.src = defaultImage }}
-          />
-        </FeaturedImage>
+        <FeaturedImageComponent blog={featuredBlog} />
       </FeaturedBlog>
 
       {/* Grid de otros blogs */}
