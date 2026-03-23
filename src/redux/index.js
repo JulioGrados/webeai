@@ -12,6 +12,7 @@ import meta from './meta'
 import label from './label'
 import testimony from './testimony'
 import certificate from './certificate'
+import blog from './blog'
 
 const reducers = combineReducers({
   user,
@@ -22,7 +23,8 @@ const reducers = combineReducers({
   meta,
   label,
   testimony,
-  certificate
+  certificate,
+  blog
 })
 
 const middleware = [createMiddleware, thunk]

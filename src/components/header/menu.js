@@ -58,6 +58,11 @@ export const MenuHeader = ({ showWhite, homeNow }) => {
                 Testimonios
               </HeaderScreenMenuItem>
             </Link>
+            <Link href='/blog'>
+              <HeaderScreenMenuItem onClick={() => setMenu(!menu)}>
+                Blog
+              </HeaderScreenMenuItem>
+            </Link>
             <Link href='/contacto'>
               <HeaderScreenMenuItem onClick={() => setMenu(!menu)}>
                 Contacto

@@ -82,6 +82,9 @@ const Header = ({ transparent = false, homeNow, course }) => {
                 <Link href='/testimonios'>
                   <HeaderMenuItem>Testimonios</HeaderMenuItem>
                 </Link>
+                <Link href='/blog'>
+                  <HeaderMenuItem>Blog</HeaderMenuItem>
+                </Link>
               </HeaderMenu>
             </HeaderItemMenu>
           </HeaderLeft>
