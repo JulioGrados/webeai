@@ -74,18 +74,12 @@ const ListBlogs = () => {
       {/* Blog destacado */}
       <FeaturedBlog>
         <FeaturedContent>
-          {featuredBlog.status && (
-            <BlogCategory>{featuredBlog.status}</BlogCategory>
-          )}
           <BlogCardTitle style={{ fontSize: '28px', marginBottom: '15px' }}>
             {featuredBlog.title}
           </BlogCardTitle>
-          <BlogCardDescription style={{ fontSize: '15px', marginBottom: '20px' }}>
+          <BlogCardDescription style={{ fontSize: '15px', margin: '0px' }}>
             {featuredBlog.description}
           </BlogCardDescription>
-          <BlogDate>
-            {moment(featuredBlog.date || featuredBlog.createdAt).format('DD MMM YYYY')}
-          </BlogDate>
           <Link href={`/blog/${featuredBlog._id}`}>
             <BlogCardLink style={{ marginTop: '15px' }}>Leer blog</BlogCardLink>
           </Link>

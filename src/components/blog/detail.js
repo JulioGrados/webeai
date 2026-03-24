@@ -50,16 +50,16 @@ const DetailBlog = ({ blogId }) => {
       </Link>
 
       <BlogDetailHeader>
-        {blog.status && (
+        {/* {blog.status && (
           <BlogDetailCategory>{blog.status}</BlogDetailCategory>
-        )}
+        )} */}
         <BlogDetailTitle>{blog.title}</BlogDetailTitle>
-        <BlogDetailMeta>
+        {/* <BlogDetailMeta>
           <span>{moment(blog.date || blog.createdAt).format('DD MMMM YYYY')}</span>
           {blog.author && blog.author.names && (
             <span>Por {blog.author.names}</span>
           )}
-        </BlogDetailMeta>
+        </BlogDetailMeta> */}
       </BlogDetailHeader>
 
       {blog.image && !imageError ? (

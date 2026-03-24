@@ -252,7 +252,7 @@ export const BlogDetailContent = styled.div`
   }
 
   p {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   img {

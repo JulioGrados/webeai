@@ -38,12 +38,6 @@ const BlogItem = ({ blog }) => {
         </BlogCardImage>
       )}
       <BlogCardContent>
-        {blog.status && (
-          <BlogCategory>{blog.status}</BlogCategory>
-        )}
-        <BlogDate>
-          {moment(blog.date || blog.createdAt).format('DD MMM YYYY')}
-        </BlogDate>
         <BlogCardTitle>{blog.title}</BlogCardTitle>
         <BlogCardDescription>{blog.description}</BlogCardDescription>
         <Link href={`/blog/${blog._id}`}>
