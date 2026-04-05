@@ -80,7 +80,7 @@ const ListBlogs = () => {
           <BlogCardDescription style={{ fontSize: '15px', margin: '0px' }}>
             {featuredBlog.description}
           </BlogCardDescription>
-          <Link href={`/blog/${featuredBlog._id}`}>
+          <Link href={`/blog/${featuredBlog.slug || featuredBlog._id}`}>
             <BlogCardLink style={{ marginTop: '15px' }}>Leer blog</BlogCardLink>
           </Link>
         </FeaturedContent>
