@@ -40,7 +40,7 @@ const BlogItem = ({ blog }) => {
       <BlogCardContent>
         <BlogCardTitle>{blog.title}</BlogCardTitle>
         <BlogCardDescription>{blog.description}</BlogCardDescription>
-        <Link href={`/blog/${blog._id}`}>
+        <Link href={`/blog/${blog.slug || blog._id}`}>
           <BlogCardLink>Leer blog</BlogCardLink>
         </Link>
       </BlogCardContent>

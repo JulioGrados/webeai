@@ -3,22 +3,22 @@ import {
   Header,
   Comunicate,
   Footer,
-  DetailBlog,
   HeadPage
 } from '../../components'
 
 import { Container } from '../../styles/main'
+import DetailBlogBySlug from '../../components/blog/detailBySlug'
 
 const BlogDetailPage = ({ meta }) => {
   const router = useRouter()
-  const { id } = router.query
+  const { slug } = router.query
 
   return (
     <>
       <HeadPage title='Blog' meta={meta} />
       <Header />
       <Container>
-        <DetailBlog blogId={id} />
+        <DetailBlogBySlug slug={slug} />
       </Container>
       <Comunicate />
       <Footer />

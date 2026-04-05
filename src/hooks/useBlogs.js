@@ -52,3 +52,32 @@ export const useBlog = (blogId) => {
     loaded
   }
 }
+
+export const useBlogBySlug = (slug) => {
+  const { current, loading, loaded } = useSelector(
+    state => state.blog
+  )
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (slug && loading === false) {
+      // Buscar por slug o por _id para mantener compatibilidad con blogs antiguos
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(slug)
+      const query = isObjectId
+        ? { _id: slug, status: 'Publicado' }
+        : { slug: slug, status: 'Publicado' }
+
+      dispatch(
+        getBlog({
+          query
+        })
+      )
+    }
+  }, [slug])
+
+  return {
+    blog: current,
+    loading,
+    loaded
+  }
+}
